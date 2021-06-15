@@ -7,22 +7,15 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Animator playerAnim;
     void FixedUpdate()
     {
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKeyDown(KeyCode.A))
         {
-            playerAnim.SetBool("Idle",false);
-            playerAnim.SetBool("Attack",true);
+            playerAnim.SetTrigger("Attack");
         }else if (Input.GetKeyDown(KeyCode.I))
         {
-            playerAnim.SetBool("Idle",true);
-        }else if (Input.GetKey(KeyCode.R))
+            playerAnim.SetTrigger("Idle");
+        }else if (Input.GetKeyDown(KeyCode.R))
         {
-            playerAnim.SetBool("Idle",false);
-            playerAnim.SetBool("Run",true);
-        }
-        else
-        {
-            playerAnim.SetBool("Run",false);
-            playerAnim.SetBool("Attack",false);
+            playerAnim.SetTrigger("Run");
         }
     }
 }
